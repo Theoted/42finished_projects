@@ -6,7 +6,7 @@
 #    By: tdeville <tdeville@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 13:51:24 by tdeville          #+#    #+#              #
-#    Updated: 2021/11/12 20:23:21 by tdeville         ###   ########lyon.fr    #
+#    Updated: 2022/01/11 10:27:30 by tdeville         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,8 @@ OBJS_B	= ${SRCS_B:.c=.o}
 CC		= gcc
 CFLAGS	= -Wall -Werror -Wextra
 
+all: ${NAME}
+
 %.o : %.c	libft.h	Makefile
 			${CC} ${CFLAGS} -c $< -o $@
 
@@ -73,7 +75,6 @@ ${NAME}:	${OBJS}
 bonus:	${OBJS} ${OBJS_B}
 	ar rcs ${NAME} ${OBJS} ${OBJS_B}
 
-all: ${NAME}
 
 clean:
 	rm -f ${OBJS} ${OBJS_B}
@@ -83,4 +84,4 @@ fclean:	clean
 
 re:		fclean all
 
-.PHONY: all clean fclean re libft.a
+.PHONY: all clean fclean re
